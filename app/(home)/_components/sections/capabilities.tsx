@@ -14,8 +14,7 @@ const CAPABILITIES = [
   {
     id: "avro-phonetic",
     label: "Avro Phonetic",
-    description:
-      "Preview window with smart suggestions for fluid phonetic typing.",
+    description: "Preview window with smart suggestions for fluid phonetic typing.",
     image: "https://placehold.co/500x500/e2e8f0/475569?text=Avro+Phonetic",
   },
   {
@@ -27,15 +26,13 @@ const CAPABILITIES = [
   {
     id: "dictionary-for-fixed-layouts",
     label: "Dictionary for Fixed Layouts",
-    description:
-      "Intelligent suggestions even when using non-phonetic layouts.",
+    description: "Intelligent suggestions even when using non-phonetic layouts.",
     image: "https://placehold.co/500x500/94a3b8/0f172a?text=Dictionary",
   },
   {
     id: "traditional-kar-joining",
     label: "Traditional Kar Joining",
-    description:
-      "Supports beautiful literary Bangla ligatures and traditional typography.",
+    description: "Supports beautiful literary Bangla ligatures and traditional typography.",
     image: "https://placehold.co/500x500/64748b/020617?text=Kar+Joining",
   },
   {
@@ -101,8 +98,9 @@ export default function Capabilities() {
               {CAPABILITIES.map((cap, i) => (
                 <div
                   key={cap.id}
-                  className={`absolute inset-0 transition-all duration-300 ease-in-out ${activeIndex === i ? "opacity-100" : "opacity-0"
-                    }`}
+                  className={`absolute inset-0 transition-all duration-300 ease-in-out ${
+                    activeIndex === i ? "opacity-100" : "opacity-0"
+                  }`}
                 >
                   <Image
                     src={cap.image}
@@ -134,21 +132,21 @@ export default function Capabilities() {
 
                     const scrollPos =
                       containerRef.current.offsetTop +
-                      i *
-                      (containerRef.current.scrollHeight /
-                        CAPABILITIES.length);
+                      i * (containerRef.current.scrollHeight / CAPABILITIES.length);
                     window.scrollTo({ top: scrollPos, behavior: "smooth" });
                   }}
-                  className={`flex flex-col gap-2 rounded-2xl border p-6 text-left transition-all duration-300 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm ${activeIndex === i
-                    ? "md:border-emerald-500/50 md:shadow-md"
-                    : "md:opacity-50 md:shadow-none hover:md:opacity-100"
-                    }`}
+                  className={`flex flex-col gap-2 rounded-2xl border p-6 text-left transition-all duration-300 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm ${
+                    activeIndex === i
+                      ? "md:border-emerald-500/50 md:shadow-md"
+                      : "md:opacity-50 md:shadow-none hover:md:opacity-100"
+                  }`}
                 >
                   <h3
-                    className={`font-bold transition-colors text-zinc-900 dark:text-zinc-50 ${activeIndex === i
-                      ? "md:text-emerald-600 md:dark:text-emerald-400"
-                      : "md:text-zinc-600 md:dark:text-zinc-400"
-                      }`}
+                    className={`font-bold transition-colors text-zinc-900 dark:text-zinc-50 ${
+                      activeIndex === i
+                        ? "md:text-emerald-600 md:dark:text-emerald-400"
+                        : "md:text-zinc-600 md:dark:text-zinc-400"
+                    }`}
                   >
                     {capability.label}
                   </h3>

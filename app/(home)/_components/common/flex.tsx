@@ -6,9 +6,5 @@ interface FlexProps {
 }
 
 export default function Flex({ children, className }: FlexProps) {
-  return (
-    <div className={cn("flex items-center justify-center", className)}>
-      {children}
-    </div>
-  );
+  return <div className={cn("flex items-center justify-center", className)}>{children}</div>;
 }

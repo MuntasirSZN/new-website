@@ -6,9 +6,7 @@ import { notFound } from "next/navigation";
 import { formatBlogPostDate } from "@/lib/blog";
 import { blog, getBlogImage } from "@/lib/source";
 
-export default async function Page(props: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function Page(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
   const page = blog.getPage([params.slug]);
 
@@ -20,10 +18,7 @@ export default async function Page(props: {
       <div className="mx-auto w-full max-w-350 px-4">
         <div className="mt-8 rounded-xl border px-4 py-8 md:px-8">
           <h1 className="mb-2 font-bold text-3xl">{page.data.title}</h1>
-          <Link
-            href="/blog"
-            className="border-zinc-700 border-b-2 dark:border-zinc-300"
-          >
+          <Link href="/blog" className="border-zinc-700 border-b-2 dark:border-zinc-300">
             Back
           </Link>
         </div>
@@ -57,9 +52,7 @@ export function generateStaticParams(): { slug: string }[] {
   }));
 }
 
-export async function generateMetadata(
-  props: PageProps<"/blog/[slug]">,
-): Promise<Metadata> {
+export async function generateMetadata(props: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const params = await props.params;
   const page = blog.getPage([params.slug]);
 

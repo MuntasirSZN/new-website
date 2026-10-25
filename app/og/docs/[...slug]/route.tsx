@@ -8,22 +8,13 @@ import { getPageImage, source } from "@/lib/source";
 
 export const revalidate = false;
 
-export async function GET(
-  _req: Request,
-  { params }: RouteContext<"/og/docs/[...slug]">,
-) {
+export async function GET(_req: Request, { params }: RouteContext<"/og/docs/[...slug]">) {
   const { slug } = await params;
   const page = source.getPage(slug.slice(0, -1));
   if (!page) notFound();
 
   const fontData = readFileSync(
-    join(
-      process.cwd(),
-      "app",
-      "_fonts",
-      "noto-sans-bengali",
-      "NotoSansBengali[wdth,wght].woff2",
-    ),
+    join(process.cwd(), "app", "_fonts", "noto-sans-bengali", "NotoSansBengali[wdth,wght].woff2"),
   );
 
   return new ImageResponse(
@@ -37,11 +28,7 @@ export async function GET(
         height: 630,
       }}
     >
-      <DefaultImage
-        title={page.data.title}
-        description={page.data.description}
-        site={appName}
-      />
+      <DefaultImage title={page.data.title} description={page.data.description} site={appName} />
     </div>,
     {
       width: 1200,

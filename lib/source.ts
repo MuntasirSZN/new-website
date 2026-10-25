@@ -2,13 +2,7 @@ import { blogPosts, docs } from "collections/server";
 import { type InferPageType, loader } from "fumadocs-core/source";
 import { lucideIconsPlugin } from "fumadocs-core/source/lucide-icons";
 import { toFumadocsSource } from "fumadocs-mdx/runtime/server";
-import {
-  blogImageRoute,
-  blogRoute,
-  docsContentRoute,
-  docsImageRoute,
-  docsRoute,
-} from "./shared";
+import { blogImageRoute, blogRoute, docsContentRoute, docsImageRoute, docsRoute } from "./shared";
 
 // See https://fumadocs.dev/docs/headless/source-api for more info
 export const source = loader({

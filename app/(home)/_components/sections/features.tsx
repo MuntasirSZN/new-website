@@ -13,29 +13,25 @@ const FEATURES = [
   {
     id: "high-performance",
     title: "High Performance",
-    description:
-      "Built with speed and responsiveness in mind for a lag-free typing experience.",
+    description: "Built with speed and responsiveness in mind for a lag-free typing experience.",
     icon: <Performance />,
   },
   {
     id: "dictionary-based-suggestion",
     title: "Dictionary based suggestion",
-    description:
-      "Real-time phonetic prediction with correct Bangla spelling suggestions.",
+    description: "Real-time phonetic prediction with correct Bangla spelling suggestions.",
     icon: <Dictionary />,
   },
   {
     id: "auto-correct",
     title: "Auto Correct",
-    description:
-      "Built with speed and responsiveness in mind for a lag-free typing experience.",
+    description: "Built with speed and responsiveness in mind for a lag-free typing experience.",
     icon: <AutoCorrect />,
   },
   {
     id: "preference-memory",
     title: "Preference Memory",
-    description:
-      "Remembers previously selected words and prioritizes them for faster typing.",
+    description: "Remembers previously selected words and prioritizes them for faster typing.",
     icon: <PreferenceMemory />,
   },
   {
@@ -48,8 +44,7 @@ const FEATURES = [
   {
     id: "fully-customizable",
     title: "Fully Customizable",
-    description:
-      "Configurable settings that stay out of your way while you type.",
+    description: "Configurable settings that stay out of your way while you type.",
     icon: <FullyCustomizable />,
   },
 ];

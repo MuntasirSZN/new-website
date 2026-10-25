@@ -6,11 +6,11 @@
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
-    "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
-    "postinstall": "fumadocs-mdx",
-    "check": "biome check . && prettier --check \"**/*.{md,mdx}\"",
-    "fix": "biome check --write . && prettier --write \"**/*.{md,mdx}\"",
-    "fix:unsafe": "biome check --write --unsafe .",
+    "types:check": "next typegen && tsc --noEmit",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
     "prepare": "husky"
   },
   "dependencies": {
@@ -29,7 +29,6 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.10",
     "@tailwindcss/postcss": "^4.2.2",
     "@types/mdx": "^2.0.13",
     "@types/node": "^25.5.2",
@@ -37,13 +36,14 @@
     "@types/react-dom": "^19.2.3",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
+    "oxfmt": "^0.74.0",
+    "oxlint": "^1.89.0",
     "postcss": "^8.5.9",
-    "prettier": "^3.8.1",
     "tailwindcss": "^4.2.2",
     "typescript": "^6.0.2"
   },
   "lint-staged": {
-    "**/*.{md,mdx}": "prettier --write",
-    "**/*.{css,js,jsx,ts,tsx,cjs,mjs,json}": "biome check --write --unsafe"
+    "*": "oxfmt --no-error-on-unmatched-pattern",
+    "*.{js,jsx,ts,tsx,mjs,cjs}": "bun run lint"
   }
 }

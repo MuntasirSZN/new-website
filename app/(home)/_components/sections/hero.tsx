@@ -22,8 +22,7 @@ export default function Hero() {
             </h1>
 
             <p className="max-w-xl pb-8 font-medium text-lg text-zinc-600 leading-relaxed md:pb-12 md:text-xl dark:text-zinc-400">
-              Fast, smart Bangla typing with phonetic and fixed layouts
-              Available on
+              Fast, smart Bangla typing with phonetic and fixed layouts Available on
               <span className="font-bold"> Linux, Windows, and macOS.</span>
             </p>
 

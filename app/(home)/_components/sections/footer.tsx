@@ -56,12 +56,7 @@ export default function Footer() {
           <div className="flex max-w-sm flex-col items-start gap-4">
             <Flex className="items-center gap-3">
               <div className="overflow-hidden rounded-xl shadow-sm">
-                <Image
-                  src="https://placehold.co/48x48"
-                  alt="placeholder"
-                  width={48}
-                  height={48}
-                />
+                <Image src="https://placehold.co/48x48" alt="placeholder" width={48} height={48} />
               </div>
 
               {/* Replace with actual logo Image */}
@@ -70,8 +65,8 @@ export default function Footer() {
               </h3>
             </Flex>
             <p className="text-zinc-600 leading-relaxed dark:text-zinc-400">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque
-              velit consectetur a, placeat laudantium tempore molestiae ipsam.
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque velit consectetur a,
+              placeat laudantium tempore molestiae ipsam.
             </p>
           </div>
 

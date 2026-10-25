@@ -15,13 +15,9 @@ export default function Page() {
             className="flex flex-col rounded-2xl border bg-fd-card p-4 shadow-sm transition-colors hover:bg-fd-accent hover:text-fd-accent-foreground"
           >
             <p className="font-medium">{post.data.title}</p>
-            <p className="text-fd-muted-foreground text-sm">
-              {post.data.description}
-            </p>
+            <p className="text-fd-muted-foreground text-sm">{post.data.description}</p>
 
-            <p className="mt-auto pt-4 text-brand text-xs">
-              {formatBlogPostDate(post)}
-            </p>
+            <p className="mt-auto pt-4 text-brand text-xs">{formatBlogPostDate(post)}</p>
           </Link>
         ))}
       </div>

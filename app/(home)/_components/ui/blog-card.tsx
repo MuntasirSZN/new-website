@@ -8,12 +8,7 @@ interface BlogCardProps {
   description: string;
 }
 
-export default function BlogCard({
-  author,
-  title,
-  date,
-  description,
-}: BlogCardProps) {
+export default function BlogCard({ author, title, date, description }: BlogCardProps) {
   return (
     <Flex className="group flex-col items-stretch justify-start gap-4 rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:border-emerald-500/30 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-500/20">
       <Flex className="items-start justify-between gap-4">
@@ -24,15 +19,11 @@ export default function BlogCard({
           <Flex className="mt-1 flex-wrap items-center justify-start gap-x-4 gap-y-1 text-zinc-400 dark:text-zinc-500">
             <Flex className="gap-1.5">
               <Calendar size={14} />
-              <p className="font-medium text-xs uppercase tracking-wider">
-                {date}
-              </p>
+              <p className="font-medium text-xs uppercase tracking-wider">{date}</p>
             </Flex>
             <Flex className="gap-1.5">
               <User size={14} />
-              <p className="font-medium text-xs uppercase tracking-wider">
-                {author}
-              </p>
+              <p className="font-medium text-xs uppercase tracking-wider">{author}</p>
             </Flex>
           </Flex>
         </div>

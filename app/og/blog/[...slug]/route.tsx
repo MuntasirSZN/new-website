@@ -8,22 +8,13 @@ import { blog, getBlogImage } from "@/lib/source";
 
 export const revalidate = false;
 
-export async function GET(
-  _req: Request,
-  { params }: RouteContext<"/og/blog/[...slug]">,
-) {
+export async function GET(_req: Request, { params }: RouteContext<"/og/blog/[...slug]">) {
   const { slug } = await params;
   const page = blog.getPage(slug.slice(0, -1));
   if (!page) notFound();
 
   const fontData = readFileSync(
-    join(
-      process.cwd(),
-      "app",
-      "_fonts",
-      "noto-sans-bengali",
-      "NotoSansBengali[wdth,wght].woff2",
-    ),
+    join(process.cwd(), "app", "_fonts", "noto-sans-bengali", "NotoSansBengali[wdth,wght].woff2"),
   );
 
   return new ImageResponse(
@@ -37,11 +28,7 @@ export async function GET(
         height: 630,
       }}
     >
-      <DefaultImage
-        title={page.data.title}
-        description={`By ${page.data.author}`}
-        site={appName}
-      />
+      <DefaultImage title={page.data.title} description={`By ${page.data.author}`} site={appName} />
     </div>,
     {
       width: 1200,
