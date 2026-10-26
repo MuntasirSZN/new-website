@@ -1,33 +1,14 @@
+// https://nextjs.org/docs/messages/export-image-api
+
 import { createMDX } from "fumadocs-mdx/next";
 
 const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const config = {
-  serverExternalPackages: ["@takumi-rs/image-response"],
-
+  output: "export",
   reactStrictMode: true,
-  async rewrites() {
-    return [
-      {
-        source: "/docs/:path*.mdx",
-        destination: "/llms.mdx/docs/:path*",
-      },
-    ];
-  },
-
-  /** @type {import('next').NextConfig} */
-  images: {
-    dangerouslyAllowSVG: true,
-    contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "placehold.co",
-      },
-    ],
-  },
+  images: { unoptimized: true },
 };
 
 export default withMDX(config);
