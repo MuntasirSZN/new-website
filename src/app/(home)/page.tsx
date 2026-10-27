@@ -1,16 +1,19 @@
-import Link from "next/link";
+import Blogs from "@/components/home/sections/blogs";
+import Capabilities from "@/components/home/sections/capabilities";
+import Features from "@/components/home/sections/features";
+import Footer from "@/components/home/sections/footer";
+import GetObk from "@/components/home/sections/get-obk";
+import Hero from "@/components/home/sections/hero";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col justify-center text-center flex-1">
-      <h1 className="text-2xl font-bold mb-4">Hello World</h1>
-      <p>
-        You can open{" "}
-        <Link href="/docs" className="font-medium underline">
-          /docs
-        </Link>{" "}
-        and see the documentation.
-      </p>
-    </div>
+    <>
+      <Hero />
+      <Features />
+      <GetObk />
+      <Capabilities />
+      <Blogs />
+      <Footer />
+    </>
   );
 }

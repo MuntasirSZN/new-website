@@ -142,3 +142,14 @@ function decode(slug: string) {
     return slug;
   }
 }
+
+/** e.g. `05 Jan 2026`, empty string for undated posts */
+export function formatPostDate(date?: Date): string {
+  return (
+    date?.toLocaleDateString("en-US", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    }) ?? ""
+  );
+}
