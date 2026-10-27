@@ -9,12 +9,12 @@ export default async function Page(props: PageProps<"/blog/tags/[tag]">) {
   if (!result) notFound();
 
   return (
-    <>
+    <div className="mx-auto flex w-full max-w-(--fd-layout-width) flex-col gap-4 px-4 py-12">
       <BlogHeader>
         <BlogTitle>{result.tag.name}</BlogTitle>
       </BlogHeader>
       <BlogCards posts={result.posts} />
-    </>
+    </div>
   );
 }
 
