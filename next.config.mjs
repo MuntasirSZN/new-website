@@ -10,7 +10,6 @@ const config = {
   reactStrictMode: true,
   images: { unoptimized: true },
   basePath: "/new-website",
-  assetPrefix: "/new-website/",
 };
 
 export default withMDX(config);
