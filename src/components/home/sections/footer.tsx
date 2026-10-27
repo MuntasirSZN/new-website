@@ -29,7 +29,7 @@ export default function Footer() {
         { label: "Home", href: "/" },
         { label: "Blog", href: "/blog" },
         { label: "Docs", href: "/docs" },
-        { label: "Smth", href: "#" },
+        { label: "Thanks", href: "/thanks" },
       ],
     },
     {
@@ -105,7 +105,7 @@ export default function Footer() {
             </Link>{" "}
             and ✨
             <Link
-              href="#"
+              href="/thanks"
               className="mx-1 text-emerald-700 hover:text-emerald-800 dark:hover:text-emerald-600"
             >
               contributors
