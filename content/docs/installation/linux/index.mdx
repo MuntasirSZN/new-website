@@ -1,0 +1,54 @@
+---
+title: Install
+description: How to install OpenBangla Keyboard on GNU/Linux.
+---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+
+Here we will show how to install OpenBangla Keyboard. Don't be afraid, installing OpenBangla Keyboard is very easy!
+
+## Before you start
+
+<Callout type="warn" title="Important">
+  If you have an older version installed, please [uninstall](https://github.com/OpenBangla/OpenBangla-Keyboard/wiki/Uninstalling-OpenBangla-Keyboard) it first.
+
+Make sure you have a working internet connection, since the installer needs to download files during setup.
+
+</Callout>
+
+<Callout type="info" title="Tip">
+  Looking to install or test the latest features from the development branch? Check out the [Develop
+  Branch Installation Guide](https://github.com/OpenBangla/OpenBangla-Keyboard/discussions/420).
+</Callout>
+
+## Installing from a package
+
+You can download a prebuilt package directly from the [releases page](https://github.com/OpenBangla/OpenBangla-Keyboard/releases) and install it manually. Pick your distribution:
+
+<Tabs groupId="distro" persist items={["Ubuntu / Debian", "Fedora", "Arch Linux"]}>
+  <Tab value="Ubuntu / Debian">```sh sudo apt install ./OpenBangla-Keyboard_*.deb ```</Tab>
+  <Tab value="Fedora">```sh sudo dnf install ./OpenBangla-Keyboard_*.rpm ```</Tab>
+  <Tab value="Arch Linux">```sh sudo pacman -U ./OpenBangla-Keyboard_*.pkg.tar.zst ```</Tab>
+</Tabs>
+
+Arch users also have the AUR available:
+
+```sh
+paru -S openbangla-keyboard-bin
+```
+
+<Callout type="info" title="Note">
+  The AUR also has `openbangla-keyboard` (builds from the latest release source) and
+  `openbangla-keyboard-git` (builds from the latest commit) if you'd rather not use the prebuilt
+  binary. Swap in `yay` or your preferred AUR helper as needed.
+</Callout>
+
+## Other distributions
+
+Check the [Releases](https://github.com/OpenBangla/OpenBangla-Keyboard/releases) page for a package that fits your system. If your distro isn't covered and has something unique or independent going on, please start a [Discussion](https://github.com/OpenBangla/OpenBangla-Keyboard/discussions) or open an [Issue](https://github.com/OpenBangla/OpenBangla-Keyboard/issues) so we can look into it.
+
+## Finally
+
+After installing OpenBangla Keyboard, log out and back in (or restart your system), then [configure your desktop environment](/docs/installation/linux/configure/configuring-environment).
+
+If this doesn't work out for you, please create an [Issue](https://github.com/OpenBangla/OpenBangla-Keyboard/issues).

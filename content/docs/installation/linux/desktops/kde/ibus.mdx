@@ -1,0 +1,141 @@
+---
+title: IBus
+description: KDE-তে IBus ব্যবহার করে OpenBangla Keyboard কনফিগার করার নির্দেশনা।
+---
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+<Callout type="warn" title="শুরুর আগে">
+  কনফিগার করার আগে অবশ্যই আপনাকে
+  [OpenBangla-Keyboard](https://github.com/OpenBangla/OpenBangla-Keyboard) Install করে নিতে হবে।
+</Callout>
+
+<Callout title="ভিডিও গাইড">
+  আপনি যদি একটি ভিডিওর মাধ্যমে প্রতিটি স্টেপ সঠিকভাবে অনুসরণ করতে চান, তাহলে Arch KDE এর ইন্সটলেশন
+  এর একটি সম্পূর্ণ ভিডিও আমাদের ইতিমধ্যেই করা আছে, যা আপনি [এখান](https://youtu.be/C8vnR1AY6sA) থেকে
+  দেখে নিতে পারেন।
+</Callout>
+
+<Steps>
+
+<Step>
+
+### IBus Preferences খুলুন
+
+Start মেনু থেকে `ibus preferences` search করে click করুন।
+
+![Start মেনুতে IBus Preferences](https://github.com/user-attachments/assets/446705c4-d32f-45ae-8e74-929072973a12)
+
+</Step>
+
+<Step>
+
+### Warning ignore করুন
+
+প্রোগ্রামটি চালু হলে এরকম একটি warning দিতে পারে। আপাতত এটাকে `OK` চাপ দিয়ে ignore করুন।
+
+![IBus warning dialog](https://github.com/user-attachments/assets/67da25fe-dd76-46fe-bea9-3a280ca94797)
+
+</Step>
+
+<Step>
+
+### Input Method যোগ করুন
+
+এরপর এরকম একটি Window আসবে। সেখানে `Input Method` tab এ গিয়ে **Add** বাটনে ক্লিক করুন।
+
+![Input Method tab এবং Add বাটন](https://github.com/user-attachments/assets/69fa20f1-463c-4264-aa23-0ea05b73b9b7)
+
+</Step>
+
+<Step>
+
+### Bengali নির্বাচন করুন
+
+এই Window তে dot অংশে ক্লিক করার পর সব ভাষার লিস্ট আসবে। সেখান থেকে **Bengali** নির্বাচন করুন।
+
+![ভাষার তালিকা](https://github.com/user-attachments/assets/e81eca8c-3585-4f56-a512-83a59ad6c1c9)
+
+![Bengali নির্বাচন](https://github.com/user-attachments/assets/9cb9a4dc-babb-4289-b9c3-d4cd3f08fcf4)
+
+</Step>
+
+<Step>
+
+### OpenBangla Keyboard যোগ করুন
+
+এবার **OpenBangla Keyboard** নির্বাচন করুন এবং **Add** বাটন চাপুন।
+
+![OpenBangla Keyboard নির্বাচন](https://github.com/user-attachments/assets/01e703c9-8491-4dc4-a6d2-18fce76e7e4f)
+
+</Step>
+
+<Step>
+
+### Shell কনফিগার ফাইলে environment variable যোগ করুন
+
+কাজ প্রায় শেষ। এবার আপনার `Shell` এর কনফিগার ফাইলে এই তিন লাইন যোগ করে নিতে হবে। অধিকাংশ মানুষ Bash / ZSH ব্যবহার করে, তাদের জন্য যথাক্রমে `~/.bashrc` অথবা `~/.zshrc` ফাইলে এই লাইনগুলো যোগ করতে হবে।
+
+```bash title="~/.bashrc / ~/.zshrc"
+# Ibus KDE
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+```
+
+<Callout>
+  আমাদের পক্ষে সব `shell` এর config দেওয়া সম্ভব নয়। যারা অন্য shell ব্যবহার করেন, তারা নিজ
+  দায়িত্বে এই কমান্ডের সমতুল্য কমান্ড বসিয়ে নেবেন।
+</Callout>
+
+<Callout title="Manjaro ব্যবহারকারী">
+  আপনি যদি Manjaro ব্যবহারকারী হন, তাহলে `manjaro-asian-input-support-ibus` প্যাকেজটি ইন্সটল করলেই `Shell` কনফিগার হয়ে যাবে:
+
+```bash
+git clone https://aur.archlinux.org/manjaro-asian-input-support.git
+cd manjaro-asian-input-support
+makepkg
+pacman -U ibus-input-support-*.pkg.tar.zst
+```
+
+</Callout>
+
+</Step>
+
+<Step>
+
+### Logout করে আবার Login করুন
+
+একবার `logout` করে `login` করুন। এখন থেকে OpenBangla Keyboard ব্যবহার করে [টাইপ](/docs/getting-started) করতে পারবেন।
+
+<Callout title="LibreOffice-এ সমস্যা হলে">
+  LibreOffice ব্যবহার করতে সমস্যা হলে এই লাইনটি `~/.bashrc` অথবা `~/.zshrc` ফাইলে যোগ করে নিন।
+
+```bash
+export OOO_FORCE_DESKTOP="gnome" libreoffice
+```
+
+</Callout>
+
+</Step>
+
+<Step>
+
+### IBus-কে default করুন (ঐচ্ছিক)
+
+আপনি যদি `IBus Preferences` কে আপনার সিস্টেমে default input method হিসেবে ব্যবহার করতে চান, তাহলে নিচের লাইনগুলো `~/.config/autostart/ibus-daemon.desktop` ফাইলে যোগ করতে হবে। এতে সিস্টেম reboot দেওয়ার পরও `IBus Preferences` ব্যবহার হবে।
+
+```ini title="~/.config/autostart/ibus-daemon.desktop"
+[Desktop Entry]
+Type=Application
+Exec=ibus-daemon -rxRd
+Hidden=false
+NoDisplay=false
+Name=IBus Daemon
+Comment=Start IBus at login
+```
+
+</Step>
+
+</Steps>

@@ -1,0 +1,82 @@
+---
+title: COSMIC
+description: COSMIC Desktop-এ OpenBangla Keyboard-এর Fcitx ভার্সন সেটআপ করার নির্দেশনা।
+---
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+<Steps>
+
+<Step>
+
+### প্যাকেজ compile করুন
+
+ভবিষ্যতে আশা করি OBK Team Fcitx ভার্সনের প্যাকেজ Release করবেন। আপাতত নিজেই প্যাকেজ compile করে নিতে হবে। এক্ষেত্রে [এই স্ক্রিপ্ট](https://github.com/asifakonjee/openbangla-script/blob/main/fcitx5.sh) অনুযায়ী apt প্যাকেজ ম্যানেজারের জন্য সেটআপ করে compile করা যেতে পারে।
+
+</Step>
+
+<Step>
+
+### Fcitx 5 কে Startup-এ যোগ করুন
+
+OBK Fcitx প্যাকেজটি ইন্সটল করে `COSMIC Settings > Applications > Startup Applications > Add app` মেনুতে গেলে ছবির মত Fcitx 5 একটি অপশন থাকবে। Fcitx 5 এর পাশে থাকা **Add** বাটনে ক্লিক করুন।
+
+![Startup Applications-এ Fcitx 5 যোগ করার অপশন](https://github.com/user-attachments/assets/fbee6a39-2542-4d39-aa16-c0822bc389e3)
+
+</Step>
+
+<Step>
+
+### OpenBangla Keyboard চালু করুন
+
+প্রথমবার Applications থেকে Fcitx 5 Configuration App সিলেক্ট করলে ছবির মত একটা উইন্ডো ওপেন হবে। `fcitx daemon currently not running` আসলে **Run Daemon** ক্লিক করুন।
+
+এরপর ডানপাশের সার্চবক্সে "OpenBangla" টাইপ করলে OpenBangla Keyboard দেখতে পাওয়া যাবে। OpenBangla Keyboard সিলেক্ট করে মাঝে লাল বক্স করা বামপাশমুখি Arrow তে ক্লিক করলে অপশনটি বামপাশে চলে আসবে। এবার **Apply** বাটনে ক্লিক করে উইন্ডোটি ক্লোজ করলে OpenBangla Keyboard চালু হবে।
+
+![Fcitx 5 Configuration উইন্ডো](https://github.com/user-attachments/assets/e0b98733-c644-47eb-a419-9cfc3a4e5e2b)
+
+</Step>
+
+<Step>
+
+### Shell কনফিগার ফাইলে environment variable যোগ করুন
+
+আপনার `Shell` এর কনফিগার ফাইলে এই তিন লাইন যোগ করে নিতে হবে। অধিকাংশ মানুষ Bash / ZSH ব্যবহার করে, তাদের জন্য যথাক্রমে `~/.bashrc` অথবা `~/.zshrc` ফাইলে এই লাইনগুলো যোগ করতে হবে।
+
+```bash title="~/.bashrc / ~/.zshrc"
+XMODIFIERS=@im=fcitx
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+```
+
+</Step>
+
+<Step>
+
+### Logout করে আবার Login করুন
+
+একবার `logout` করে `login` করুন অথবা Restart করুন। এখন থেকে OpenBangla Keyboard ব্যবহার করে [টাইপ](/docs/getting-started) করতে পারবেন।
+
+</Step>
+
+<Step>
+
+### Layout পরিবর্তন করুন
+
+Layout পরিবর্তন করতে ছবির মতো Fcitx Panel Applet এ ক্লিক করে OpenBangla Keyboard সিলেক্ট করুন। এখন আপনি বাংলাতে টাইপ করতে পারবেন।
+
+![Fcitx Panel Applet](https://github.com/user-attachments/assets/868f7145-b0d8-4952-8537-d1a701fdf7b8)
+
+![OpenBangla Keyboard সিলেক্ট করা](https://github.com/user-attachments/assets/fe0f26e8-d1c6-4c4f-95c7-f707ffa26aed)
+
+![LibreOffice-এ বাংলা টাইপিং](https://github.com/user-attachments/assets/4a5f152f-763e-4a00-9c72-a88bb4d6affb)
+
+</Step>
+
+</Steps>
+
+<Callout type="warn">
+  COSMIC এর নিজস্ব Application যেমনঃ Cosmic Files, Cosmic Text, Cosmic Terminal ইত্যাদি এবং Electron
+  based কিছু অ্যাপে এখনো লেখা যাবে না। আশা করি সেগুলো COSMIC Desktop সমাধান করবে।
+</Callout>

@@ -1,0 +1,76 @@
+---
+title: MATE
+description: Set up OpenBangla Keyboard on the MATE desktop environment using IBus.
+---
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+<Callout type="warn" title="Before you start">
+  Install [OpenBangla-Keyboard](https://github.com/OpenBangla/OpenBangla-Keyboard) first, following
+  the [installation instructions](/docs/installation/linux).
+</Callout>
+
+<Steps>
+
+<Step>
+
+### Open IBus Preferences
+
+From the top panel, go to `System > Preferences > Other > IBus Preferences`.
+
+![Finding IBus Preferences in the System menu](https://user-images.githubusercontent.com/32275394/53181952-bc73bb80-3622-11e9-9c3c-296456453eff.png)
+
+The **IBus Preferences** window will open.
+
+![IBus Preferences window](https://user-images.githubusercontent.com/32275394/53182128-16748100-3623-11e9-93db-2635df164a4b.png)
+
+</Step>
+
+<Step>
+
+### Add OpenBangla Keyboard
+
+Select the **Input Method** tab.
+
+![Input Method tab](https://user-images.githubusercontent.com/32275394/53182136-18d6db00-3623-11e9-8610-ca6d90cb55d4.png)
+
+Click **Add**, and a new window with a list of languages will pop up.
+
+![Add input method dialog with the language list](https://user-images.githubusercontent.com/32275394/53182290-65bab180-3623-11e9-88a4-0553ee1ba064.png)
+
+Select **Bengali**. You'll see the **OpenBangla Keyboard** layout listed there.
+
+![OpenBangla Keyboard listed under Bengali](https://user-images.githubusercontent.com/32275394/53182515-cfd35680-3623-11e9-9d55-188408442032.png)
+
+Select it and click **Add**. You'll now see two input methods listed on the **Input Method** tab.
+
+![Input Method tab after adding OpenBangla Keyboard](https://user-images.githubusercontent.com/32275394/53182656-2345a480-3624-11e9-9fee-ba1bb428bb4c.png)
+
+</Step>
+
+<Step>
+
+### Choose a shortcut
+
+Go to the **General** tab and choose a **Keyboard shortcut** for switching between English and OpenBangla Keyboard. In the screenshot below, <kbd>F12</kbd> is used.
+
+![General tab with the keyboard shortcut set to F12](https://user-images.githubusercontent.com/32275394/53182935-a404a080-3624-11e9-9a54-df6a2b4150c5.png)
+
+</Step>
+
+<Step>
+
+### Reboot
+
+Reboot your system.
+
+<Callout type="warn">
+  This is important. If you don't reboot, the changes might not take effect.
+</Callout>
+
+</Step>
+
+</Steps>
+
+That's it! You can now type Bangla using OpenBangla Keyboard whenever you like. To learn how to type with it, see [Getting started](/docs/getting-started).

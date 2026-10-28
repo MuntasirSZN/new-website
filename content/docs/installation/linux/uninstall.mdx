@@ -1,0 +1,43 @@
+---
+title: Uninstall
+description: ওপেনবাংলা কিবোর্ড যেভাবে আনইন্সটল করবেন
+---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+
+টার্মিনালের নতুন একটি উইন্ডো খুলে আপনার ডিস্ট্রিবিউশন অনুযায়ী এই কমান্ডটি ব্যবহার করুন:
+
+<Tabs groupId="distro" persist items={['Ubuntu / Debian', 'Fedora', 'Arch Linux']}>
+  <Tab value="Ubuntu / Debian">
+    উবুন্টু কিংবা ডেবিয়ান ডিস্ট্রিবিউশনে:
+
+    ```sh
+    sudo apt remove openbangla-keyboard
+    ```
+
+  </Tab>
+  <Tab value="Fedora">
+    ফেডোরা ডিস্ট্রিবিউশনে:
+
+    ```sh
+    sudo dnf remove openbangla-keyboard
+    ```
+
+  </Tab>
+  <Tab value="Arch Linux">
+    আর্চ লিনাক্স কিংবা মানজারো ডিস্ট্রিবিউশনে:
+
+    ```sh
+    sudo pacman -R openbangla-keyboard
+    ```
+
+  </Tab>
+</Tabs>
+
+## সোর্স থেকে কম্পাইল করে থাকলে
+
+টার্মিনালের নতুন একটি উইন্ডো খুলে যে ফোল্ডারে আপনি ওপেনবাংলা কিবোর্ডের সোর্স ডাউনলোড করেছিলেন সেই ফোল্ডারে যেতে হবে। সে ফোল্ডারে নিশ্চয়ই একটি `build` নামক ফোল্ডার থাকার কথা যেটি আপনাকে তৈরি করতে বলা হয়েছিল কম্পাইলিং করবার আগে। সেই ফোল্ডারে গিয়ে এই কমান্ডটি ব্যবহার করুন:
+
+```sh
+sudo make uninstall
+```

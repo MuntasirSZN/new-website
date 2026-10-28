@@ -1,0 +1,45 @@
+---
+title: LXDE
+description: Set up OpenBangla Keyboard on LXDE using IBus.
+---
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+To make OpenBangla Keyboard run on LXDE, you might need to install `ibus` manually.
+
+<Steps>
+
+<Step>
+
+### Install IBus
+
+Open a terminal and run:
+
+```bash
+sudo apt install ibus
+```
+
+After `ibus` is installed, a popup will appear asking if you want to enable it. Press **Yes**.
+
+</Step>
+
+<Step>
+
+### Add OpenBangla Keyboard
+
+Go to `Preferences > ibus Preferences > Input Method`, click **Add**, then select **Bangla > OpenBangla Keyboard**.
+
+</Step>
+
+<Step>
+
+### Switch input methods
+
+Once OpenBangla Keyboard is in the `ibus` Input Methods list, you can enable and disable it by pressing <kbd>Super</kbd> + <kbd>Space</kbd>.
+
+<Callout>`Super` is the key with the Windows logo on many keyboards.</Callout>
+
+</Step>
+
+</Steps>
