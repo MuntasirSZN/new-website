@@ -26,16 +26,34 @@ Make sure you have a working internet connection, since the installer needs to d
 You can download a prebuilt package directly from the [releases page](https://github.com/OpenBangla/OpenBangla-Keyboard/releases) and install it manually. Pick your distribution:
 
 <Tabs groupId="distro" persist items={["Ubuntu / Debian", "Fedora", "Arch Linux"]}>
-  <Tab value="Ubuntu / Debian">```sh sudo apt install ./OpenBangla-Keyboard_*.deb ```</Tab>
-  <Tab value="Fedora">```sh sudo dnf install ./OpenBangla-Keyboard_*.rpm ```</Tab>
-  <Tab value="Arch Linux">```sh sudo pacman -U ./OpenBangla-Keyboard_*.pkg.tar.zst ```</Tab>
-</Tabs>
+<Tab value="Ubuntu / Debian">
+
+```sh
+sudo apt install ./OpenBangla-Keyboard_*.deb
+```
+
+</Tab>
+<Tab value="Fedora">
+
+```sh
+sudo dnf install ./OpenBangla-Keyboard_*.rpm
+```
+
+</Tab>
+<Tab value="Arch Linux">
+
+```sh
+sudo pacman -U ./OpenBangla-Keyboard_*.pkg.tar.zst
+```
 
 Arch users also have the AUR available:
 
 ```sh
 paru -S openbangla-keyboard-bin
 ```
+
+</Tab>
+</Tabs>
 
 <Callout type="info" title="Note">
   The AUR also has `openbangla-keyboard` (builds from the latest release source) and

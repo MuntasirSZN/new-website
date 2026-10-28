@@ -22,22 +22,41 @@ Install them for your distribution:
   persist
   items={["Ubuntu / Debian", "Fedora", "Arch Linux", "openSUSE", "Solus"]}
 >
-  <Tab value="Ubuntu / Debian">
-    ```sh sudo apt-get install build-essential rustc cargo cmake libibus-1.0-dev qtbase5-dev
-    qtbase5-dev-tools libzstd-dev ```
-  </Tab>
-  <Tab value="Fedora">
-    ```sh sudo dnf install @buildsys-build rust cargo cmake qt5-qtdeclarative-devel ibus-devel
-    libzstd-devel ```
-  </Tab>
-  <Tab value="Arch Linux">```sh sudo pacman -S base-devel rust cmake qt5-base libibus zstd ```</Tab>
-  <Tab value="openSUSE">
-    ```sh sudo zypper install libQt5Core-devel libQt5Widgets-devel libQt5Network-devel libzstd-devel
-    libzstd1 cmake make ninja rust ibus-devel ibus clang gcc patterns-devel-base-devel_basis ```
-  </Tab>
-  <Tab value="Solus">
-    ```sh sudo eopkg install -c system.devel rust qt5-base-devel ibus-devel zstd-devel git ```
-  </Tab>
+<Tab value="Ubuntu / Debian">
+
+```sh
+sudo apt-get install build-essential rustc cargo cmake libibus-1.0-dev qtbase5-dev qtbase5-dev-tools libzstd-dev
+```
+
+</Tab>
+<Tab value="Fedora">
+
+```sh
+sudo dnf install @buildsys-build rust cargo cmake qt5-qtdeclarative-devel ibus-devel libzstd-devel
+```
+
+</Tab>
+<Tab value="Arch Linux">
+  
+```sh 
+sudo pacman -S base-devel rust cmake qt5-base libibus zstd 
+```
+  
+</Tab>
+<Tab value="openSUSE">
+
+```sh
+sudo zypper install libQt5Core-devel libQt5Widgets-devel libQt5Network-devel libzstd-devel libzstd1 cmake make ninja rust ibus-devel ibus clang gcc patterns-devel-base-devel_basis
+```
+
+</Tab>
+<Tab value="Solus">
+
+```sh
+sudo eopkg install -c system.devel rust qt5-base-devel ibus-devel zstd-devel git
+```
+
+</Tab>
 </Tabs>
 
 ## Building & Installing
