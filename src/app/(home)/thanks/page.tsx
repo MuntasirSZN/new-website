@@ -13,8 +13,8 @@ const LAST_UPDATED = "2026-10-28";
 const CONTRIBUTORS: { name: string; commits: number }[] = [
   { name: "Muhammad Mominul Huque", commits: 426 },
   { name: "Adyel Ullahil Mamun", commits: 24 },
-  { name: "Mubashshir", commits: 13 },
-  { name: "bdeshi", commits: 12 },
+  { name: "Ahmad Hasan Mubashshir", commits: 13 },
+  { name: "Sammay Sarkar", commits: 12 },
   { name: "Reshad Ahammed Ayon", commits: 6 },
   { name: "Weng Xuetian", commits: 6 },
   { name: "Abu Huraira", commits: 3 },
