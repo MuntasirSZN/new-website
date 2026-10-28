@@ -1,11 +1,11 @@
 // https://nextjs.org/docs/messages/export-image-api
 
 import { createMDX } from "fumadocs-mdx/next";
+import { type NextConfig } from "next";
 
 const withMDX = createMDX();
 
-/** @type {import('next').NextConfig} */
-const config = {
+const config: NextConfig = {
   output: "export",
   reactStrictMode: true,
   images: { unoptimized: true },
