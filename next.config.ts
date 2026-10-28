@@ -1,7 +1,7 @@
 // https://nextjs.org/docs/messages/export-image-api
 
 import { createMDX } from "fumadocs-mdx/next";
-import { type NextConfig } from "next";
+import type { NextConfig } from "next";
 
 const withMDX = createMDX();
 
