@@ -3,6 +3,7 @@
 
 # generated content
 .source
+src/app/(home)/thanks/contributors-data.ts
 
 # test & build
 /coverage
