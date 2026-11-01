@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import data from "@/data/contributors.json"; // adjust the alias if your tsconfig differs
 
 export const metadata: Metadata = {
-  title: "Thanks",
+  title: "Thanks | OpenBangla Keyboard",
   description: "All-time contributors to OpenBangla.",
 };
 
