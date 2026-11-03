@@ -47,28 +47,28 @@ Install the rest of the dependencies for specific distribution.
 <Tab value="Ubuntu / Debian">
 
 ```sh
-sudo apt-get install build-essential cmake libibus-1.0-dev libfcitx5core-dev qtbase5-dev qtbase5-dev-tools libzstd-dev
+sudo apt-get install cmake fcitx5 fcitx5-config-gtk fcitx5-config-qt gcc libibus-1.0-dev libfcitx5core-dev libzstd-dev make qtbase5-dev qtbase5-dev-tools
 ```
 
 </Tab>
 <Tab value="Fedora">
 
 ```sh
-sudo dnf install @buildsys-build cmake qt5-qtdeclarative-devel ibus-devel fcitx5-devel libzstd-devel
+sudo dnf install cmake fcitx5-devel fcitx5-configtool fcitx5-gtk fcitx5-qt gcc ibus-devel libzstd-devel make qt5-qtbase-devel qt5-qtsvg-devel
 ```
 
 </Tab>
 <Tab value="Arch Linux">
   
 ```sh 
-sudo pacman -S base-devel cmake qt5-base libibus fcitx5 zstd 
+sudo pacman -S --needed cmake fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt gcc git ibus make qt5-base zstd
 ```
-  
+
 </Tab>
 <Tab value="openSUSE">
 
 ```sh
-sudo zypper install libQt5Core-devel libQt5Widgets-devel libQt5Network-devel libzstd-devel libzstd1 cmake make ninja ibus-devel ibus fcitx5-devel clang gcc patterns-devel-base-devel_basis
+sudo zypper install cmake ibus ibus-devel fcitx5-devel gcc libQt5Core-devel libQt5Widgets-devel libQt5Network-devel libzstd-devel libzstd1 make
 ```
 
 </Tab>
@@ -124,7 +124,7 @@ In this step generate `cmake` configurations and compile using `cmake`.
 ```sh
 mkdir build &&
 cd build &&
-cmake -DENABLE_BOTH=ON ..
+cmake -DENABLE_BOTH=ON -DCMAKE_INSTALL_PREFIX="/usr" ..
 ```
 
 </Tab>
@@ -134,7 +134,7 @@ cmake -DENABLE_BOTH=ON ..
 ```sh
 mkdir build &&
 cd build &&
-cmake -DENABLE_IBUS=ON ..
+cmake -DENABLE_IBUS=ON -DCMAKE_INSTALL_PREFIX="/usr" ..
 ```
 
 </Tab>
@@ -144,7 +144,7 @@ cmake -DENABLE_IBUS=ON ..
 ```sh
 mkdir build &&
 cd build &&
-cmake -DENABLE_FCITX=ON ..
+cmake -DENABLE_FCITX=ON -DCMAKE_INSTALL_PREFIX="/usr" ..
 ```
 
 </Tab>
