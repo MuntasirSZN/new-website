@@ -1,5 +1,5 @@
 ---
-title: Build and Install
+title: Build from Source
 description: Build OpenBangla Keyboard from source on GNU/Linux.
 ---
 
@@ -10,9 +10,9 @@ This is a step by step build guide for OpenBangla Keyboard for linux.
 
 OpenBangla Keyboard currently has the following build dependencies:
 
-- GCC or Clang
+- GCC
 - Rust
-- GNU Make or Ninja
+- GNU Make
 - CMake
 - Qt 5
 - IBus
@@ -82,7 +82,7 @@ sudo eopkg install -c system.devel fcitx5-devel fcitx5-configtool git ibus-devel
 <Tab value="Void Linux">
 
 ```sh
-sudo xbps-install base-devel fcitx5 fcitx5-configtool git ibus-devel libfcitx5-devel qt5-base-devel qt5-svg-devel libzstd-devel
+sudo xbps-install base-devel fcitx5 fcitx5-configtool git ibus-devel libfcitx5-devel libzstd-devel qt5-base-devel qt5-svg-devel
 ```
 
 </Tab>
