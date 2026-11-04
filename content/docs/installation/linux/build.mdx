@@ -42,7 +42,7 @@ Install the rest of the dependencies for specific distribution.
 <Tabs
   groupId="distro"
   persist
-  items={["Ubuntu / Debian", "Fedora", "Arch Linux", "openSUSE", "Solus"]}
+  items={["Ubuntu / Debian", "Fedora", "Arch Linux", "openSUSE", "Solus", "Void Linux"]}
 >
 <Tab value="Ubuntu / Debian">
 
@@ -61,7 +61,7 @@ sudo dnf install @c-development cmake fcitx5 fcitx5-devel git ibus ibus-devel li
 <Tab value="Arch Linux">
   
 ```sh 
-sudo pacman -S --needed base-devel cmake fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt git ibus qt5-base qt5-svg zstd
+sudo pacman -S --needed base-devel cmake fcitx5 fcitx5-configtool git ibus qt5-base qt5-svg zstd
 ```
 
 </Tab>
@@ -76,6 +76,13 @@ sudo zypper install cmake fcitx5-devel git ibus-devel libqt5-qtbase-devel libqt5
 
 ```sh
 sudo eopkg install -c system.devel fcitx5-devel fcitx5-configtool git ibus-devel qt5-base-devel qt5-svg-devel zstd-devel
+```
+
+</Tab>
+<Tab value="Void Linux">
+
+```sh
+sudo xbps-install base-devel fcitx5 fcitx5-configtool git ibus-devel libfcitx5-devel qt5-base-devel qt5-svg-devel libzstd-devel
 ```
 
 </Tab>
