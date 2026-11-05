@@ -6,7 +6,7 @@ It is a Next.js app with [Static Export](https://nextjs.org/docs/app/guides/stat
 
 ## Acknowledgements
 
-- [Muhsin Azmal](https://github.com/muhsinazmal9), for designing the homepage.
+- [Muhsin Azmal](https://github.com/muhsinazmal9), for designing an earlier, unpublished version of the homepage.
 
 ## Learn More
 
