@@ -28,29 +28,35 @@ export default function ThanksPage() {
   const total = rows.reduce((sum, c) => sum + c.commits, 0);
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-12 sm:py-16">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight text-fd-foreground sm:text-4xl">Thanks</h1>
-        <h2 className="mt-2 text-lg text-fd-muted-foreground">All-time OpenBangla contributors</h2>
-        <p className="mt-4 text-fd-muted-foreground">
-          OpenBangla exists because of the people below. Thank you for every commit. The list counts
-          commits on the default branch of each repository in the OpenBangla organization, excluding
-          merge commits.
-        </p>
+    <div className="mx-auto w-full max-w-(--fd-layout-width) px-4 py-12">
+      <div className="max-w-3xl">
+        <header className="mb-8">
+          <h1 className="text-3xl font-bold tracking-tight text-fd-foreground sm:text-4xl">
+            Thanks
+          </h1>
+          <h2 className="mt-2 text-lg text-fd-muted-foreground">
+            All-time OpenBangla contributors
+          </h2>
+          <p className="mt-4 text-fd-muted-foreground">
+            OpenBangla exists because of the people below. Thank you for every commit. The list
+            counts commits on the default branch of each repository in the OpenBangla organization,
+            excluding merge commits.
+          </p>
 
-        <dl className="mt-6 flex flex-wrap gap-3">
-          {[
-            ["Contributors", rows.length],
-            ["Commits", total],
-            ["Repositories", data.repositories],
-          ].map(([label, value]) => (
-            <div key={label} className="rounded-lg border border-fd-border bg-fd-card px-4 py-3">
-              <dt className="text-sm text-fd-muted-foreground">{label}</dt>
-              <dd className="text-2xl font-semibold text-fd-card-foreground">{value}</dd>
-            </div>
-          ))}
-        </dl>
-      </header>
+          <dl className="mt-6 flex flex-wrap gap-3">
+            {[
+              ["Contributors", rows.length],
+              ["Commits", total],
+              ["Repositories", data.repositories],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-lg border border-fd-border bg-fd-card px-4 py-3">
+                <dt className="text-sm text-fd-muted-foreground">{label}</dt>
+                <dd className="text-2xl font-semibold text-fd-card-foreground">{value}</dd>
+              </div>
+            ))}
+          </dl>
+        </header>
+      </div>
 
       <div className="overflow-hidden rounded-xl border border-fd-border bg-fd-card">
         <table className="w-full border-collapse text-left text-sm">
@@ -104,6 +110,6 @@ export default function ThanksPage() {
         </time>
         . This site is static, so the list is refreshed by hand.
       </p>
-    </main>
+    </div>
   );
 }
