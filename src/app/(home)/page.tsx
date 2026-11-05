@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Card, Cards } from "fumadocs-ui/components/card";
 
 export const metadata = {
-  description:
-    "A free and open-source Bangla keyboard for Linux, macOS, and Windows. Type phonetically or with a layout you already know, and pick from word suggestions as you write.",
+  title: "OpenBangla Keyboard",
+  description: "A free and open-source Bangla keyboard for Linux, macOS, and Windows.",
 };
 
 const features = [
