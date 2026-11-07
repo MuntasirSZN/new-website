@@ -3,8 +3,6 @@
   "version": "0.0.51",
   "private": true,
   "scripts": {
-    "prebuild": "bun run scripts/generate-contributors.ts",
-    "predev": "bun run scripts/generate-contributors.ts",
     "build": "next build",
     "dev": "next dev",
     "start": "serve out",
