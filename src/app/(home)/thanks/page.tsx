@@ -1,54 +1,55 @@
-// app/thanks/page.tsx
-//
-// A static "Thanks" page listing all-time contributors to OpenBangla.
-// Colors come from Fumadocs' `fd-*` Tailwind tokens.
-
 import type { Metadata } from "next";
-import { CONTRIBUTORS, LAST_UPDATED } from "./contributors-data";
+import data from "@/data/contributors.json"; // adjust the alias if your tsconfig differs
 
 export const metadata: Metadata = {
-  title: "Thanks",
+  title: "Thanks | OpenBangla Keyboard",
   description: "All-time contributors to OpenBangla.",
 };
 
 // Standard competition ranking: equal commit counts share a rank (1, 2, 2, 4 ...).
-function withRanks(list: typeof CONTRIBUTORS) {
+function withRanks(list: { name: string; commits: number }[]) {
   const sorted = [...list].sort((a, b) => b.commits - a.commits || a.name.localeCompare(b.name));
-  return sorted.map((c, i) => {
-    const firstWithSameCount = sorted.findIndex((x) => x.commits === c.commits);
-    return { ...c, rank: firstWithSameCount + 1, key: `${i}-${c.name}` };
-  });
+  return sorted.map((c, i) => ({
+    ...c,
+    rank: sorted.findIndex((x) => x.commits === c.commits) + 1,
+    key: `${i}-${c.name}`,
+  }));
 }
 
 export default function ThanksPage() {
-  const rows = withRanks(CONTRIBUTORS);
+  const rows = withRanks(data.contributors);
   const total = rows.reduce((sum, c) => sum + c.commits, 0);
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-12 sm:py-16">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight text-fd-foreground sm:text-4xl">Thanks</h1>
-        <h2 className="mt-2 text-lg text-fd-muted-foreground">All-time OpenBangla contributors</h2>
-        <p className="mt-4 text-fd-muted-foreground">
-          OpenBangla exists because of the people below. Thank you for every commit. The list shows
-          all-time commits on the{" "}
-          <code className="rounded bg-fd-muted px-1.5 py-0.5 text-sm text-fd-foreground">
-            develop
-          </code>{" "}
-          branch of each repository in the OpenBangla organization, excluding merge commits.
-        </p>
+    <div className="mx-auto w-full max-w-(--fd-layout-width) px-4 py-12">
+      <div className="max-w-3xl">
+        <header className="mb-8">
+          <h1 className="text-3xl font-bold tracking-tight text-fd-foreground sm:text-4xl">
+            Thanks
+          </h1>
+          <h2 className="mt-2 text-lg text-fd-muted-foreground">
+            All-time OpenBangla contributors
+          </h2>
+          <p className="mt-4 text-fd-muted-foreground">
+            OpenBangla exists because of the people below. Thank you for every commit. The list
+            counts commits on the default branch of each repository in the OpenBangla organization,
+            excluding merge commits.
+          </p>
 
-        <dl className="mt-6 flex flex-wrap gap-3">
-          <div className="rounded-lg border border-fd-border bg-fd-card px-4 py-3">
-            <dt className="text-sm text-fd-muted-foreground">Contributors</dt>
-            <dd className="text-2xl font-semibold text-fd-card-foreground">{rows.length}</dd>
-          </div>
-          <div className="rounded-lg border border-fd-border bg-fd-card px-4 py-3">
-            <dt className="text-sm text-fd-muted-foreground">Commits</dt>
-            <dd className="text-2xl font-semibold text-fd-card-foreground">{total}</dd>
-          </div>
-        </dl>
-      </header>
+          <dl className="mt-6 flex flex-wrap gap-3">
+            {[
+              ["Contributors", rows.length],
+              ["Commits", total],
+              ["Repositories", data.repositories],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-lg border border-fd-border bg-fd-card px-4 py-3">
+                <dt className="text-sm text-fd-muted-foreground">{label}</dt>
+                <dd className="text-2xl font-semibold text-fd-card-foreground">{value}</dd>
+              </div>
+            ))}
+          </dl>
+        </header>
+      </div>
 
       <div className="overflow-hidden rounded-xl border border-fd-border bg-fd-card">
         <table className="w-full border-collapse text-left text-sm">
@@ -81,7 +82,7 @@ export default function ThanksPage() {
                     </span>
                   )}
                 </td>
-                <td className="px-4 py-2.5 text-right tabular-nums font-medium text-fd-foreground">
+                <td className="px-4 py-2.5 text-right font-medium tabular-nums text-fd-foreground">
                   {c.commits}
                 </td>
               </tr>
@@ -92,16 +93,16 @@ export default function ThanksPage() {
 
       <p className="mt-6 text-sm text-fd-muted-foreground">
         Last updated on{" "}
-        <time dateTime={LAST_UPDATED}>
-          {new Date(`${LAST_UPDATED}T00:00:00Z`).toLocaleDateString("en-US", {
+        <time dateTime={data.updatedAt}>
+          {new Date(`${data.updatedAt}T00:00:00Z`).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric",
             timeZone: "UTC",
           })}
         </time>
-        . The list and date are regenerated at build time from the repository history.
+        . This site is static, so the list is refreshed by hand.
       </p>
-    </main>
+    </div>
   );
 }
