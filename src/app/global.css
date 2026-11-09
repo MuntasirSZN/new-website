@@ -3,6 +3,8 @@
 @import "fumadocs-ui/css/preset.css";
 
 @theme {
+  --font-sans: var(--font-geist-sans), var(--font-bengali), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), var(--font-bengali), ui-monospace, monospace;
   --color-brand: #d72c28;
   --color-brand-hover: #c12824;
   --color-brand-text: #c12824;
