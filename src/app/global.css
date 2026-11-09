@@ -7,6 +7,8 @@
   --font-mono: var(--font-geist-mono), var(--font-bengali), ui-monospace, monospace;
   --color-brand: #d72c28;
   --color-brand-hover: #c12824;
+  /* Quiet Grey passes AA on every light surface and hover wash; Fumadocs default #737373 is 4.35:1 on canvas. */
+  --color-fd-muted-foreground: #595959;
   --color-brand-text: #c12824;
 }
 
