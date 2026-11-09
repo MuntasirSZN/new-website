@@ -65,6 +65,14 @@ interface Person {
 interface Contributor {
   name: string;
   commits: number;
+  login?: string;
+  avatar?: string;
+}
+
+/** A GitHub account linked to at least one commit. */
+interface Profile {
+  login: string;
+  avatar: string;
 }
 
 interface Collection {
@@ -138,11 +146,12 @@ function printContributorsTable(people: Person[]): void {
   });
 }
 
-function printSummary(collection: Collection, contributorCount: number): void {
+function printSummary(collection: Collection, contributors: Contributor[]): void {
   const commits = formatNumber(collection.commits.length);
+  const avatars = contributors.filter((contributor) => contributor.avatar).length;
   console.log(
-    `  ${contributorCount} contributors, ${commits} commits, ` +
-      `${collection.scannedRepos} repos -> ${relative(ROOT, OUTPUT_PATH)}`,
+    `  ${contributors.length} contributors, ${commits} commits, ` +
+      `${collection.scannedRepos} repos, ${avatars} with avatars -> ${relative(ROOT, OUTPUT_PATH)}`,
   );
 
   const skipped = collection.skippedRepos;
@@ -228,10 +237,74 @@ async function listRepos(org: string, token: string): Promise<Repo[]> {
   }
 }
 
+/** Shape of the fields we use from GitHub's "list commits" response. */
+interface ApiCommit {
+  sha: string;
+  author: { login: string; avatar_url: string } | null;
+  parents: { sha: string }[];
+}
+
+/**
+ * GitHub accounts linked to the org's non-merge commits, keyed by commit SHA.
+ * Merge commits are skipped so these counts match the clone output, which uses
+ * `git log --no-merges`.
+ * Best-effort: a repo whose API call fails is reported and skipped, because
+ * profiles are decoration and must never cost us the commit counts.
+ */
+export async function collectProfiles(
+  org: string,
+  repos: Repo[],
+  token: string,
+  fetchFn: typeof fetch = fetch,
+): Promise<Map<string, Profile>> {
+  const profiles = new Map<string, Profile>();
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    Accept: "application/vnd.github+json",
+    "User-Agent": "generate-contributors",
+  };
+  const nameWidth = Math.max(0, ...repos.map((repo) => repo.name.length));
+
+  for (const repo of repos) {
+    let linked = 0;
+    try {
+      for (let page = 1; ; page++) {
+        const url =
+          `https://api.github.com/repos/${org}/${repo.name}/commits` +
+          `?per_page=100&sha=${encodeURIComponent(repo.defaultBranch)}&page=${page}`;
+        const response = await fetchFn(url, { headers });
+        if (!response.ok) {
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
+
+        const batch = (await response.json()) as ApiCommit[];
+        if (batch.length === 0) break; // an empty page means we have seen everything
+
+        for (const commit of batch) {
+          if (commit.parents.length > 1) continue; // merge commit: the clone skips it too
+          if (!commit.author) continue;
+          profiles.set(commit.sha, {
+            login: commit.author.login,
+            avatar: commit.author.avatar_url,
+          });
+          linked++;
+        }
+      }
+      console.log(`  ${green("[ok]")}   ${repo.name.padEnd(nameWidth)}   ${linked} linked commits`);
+    } catch (error) {
+      console.log(
+        `  ${yellow("[warn]")} ${repo.name.padEnd(nameWidth)}   ` +
+          `could not resolve profiles (${firstLine(describeError(error))})`,
+      );
+    }
+  }
+
+  return profiles;
+}
+
 // ---------------------------------------------------------------------------
 // Git: getting commits out of each repo
 // ---------------------------------------------------------------------------
-
 /** Runs git with our central mailmap applied. Throws if git exits with an error. */
 async function git(args: string[]): Promise<string> {
   const gitArgs = ["-c", `mailmap.file=${MAILMAP_PATH}`, ...args];
@@ -374,9 +447,51 @@ function suggestMailmapLines(people: Person[]): string[] {
   return lines;
 }
 
-/** Drops the email: this is the only shape that is ever written to disk. */
-function toContributors(people: Person[]): Contributor[] {
-  return people.map(({ name, commits }) => ({ name, commits }));
+/** Asks for a 48px image so 24px displays stay sharp on 2x screens. */
+export function normalizeAvatarUrl(url: string): string {
+  const normalized = new URL(url);
+  normalized.searchParams.set("s", "48");
+  return normalized.toString();
+}
+
+/**
+ * Drops the email and adds the GitHub profile linked to the person's commits.
+ * When an email maps to several logins, the most frequent one wins; ties go
+ * alphabetically so the output is stable. People with no linked commit are
+ * returned without `login`/`avatar` and keep their initials in the UI.
+ */
+export function attachProfiles(
+  people: Person[],
+  commits: Commit[],
+  profiles: Map<string, Profile>,
+): Contributor[] {
+  const countsByEmail = new Map<string, Map<string, { count: number; avatar: string }>>();
+
+  for (const { email, sha } of commits) {
+    const profile = profiles.get(sha);
+    if (!profile) continue;
+
+    const counts = countsByEmail.get(email) ?? new Map();
+    const current = counts.get(profile.login) ?? { count: 0, avatar: profile.avatar };
+    counts.set(profile.login, { count: current.count + 1, avatar: profile.avatar });
+    countsByEmail.set(email, counts);
+  }
+
+  return people.map(({ name, email, commits: commitCount }) => {
+    const counts = countsByEmail.get(email);
+    if (!counts) return { name, commits: commitCount };
+
+    const [login, best] = [...counts.entries()].sort(
+      ([loginA, a], [loginB, b]) => b.count - a.count || loginA.localeCompare(loginB),
+    )[0];
+
+    return {
+      name,
+      commits: commitCount,
+      login,
+      avatar: normalizeAvatarUrl(best.avatar),
+    };
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -416,7 +531,10 @@ async function main(): Promise<void> {
   const collection = await collectCommits(repos, cacheDir);
 
   const people = countPeople(collection.commits);
-  const contributors = toContributors(people);
+
+  printHeading("Profiles");
+  const profiles = await collectProfiles(org, repos, token);
+  const contributors = attachProfiles(people, collection.commits, profiles);
   await writeOutput(collection, contributors);
 
   printHeading("Contributors");
@@ -429,10 +547,12 @@ async function main(): Promise<void> {
   }
 
   printHeading("Done");
-  printSummary(collection, contributors.length);
+  printSummary(collection, contributors);
 }
 
-main().catch((error) => {
-  console.error(describeError(error));
-  process.exit(1);
-});
+if (import.meta.main) {
+  main().catch((error) => {
+    console.error(describeError(error));
+    process.exit(1);
+  });
+}

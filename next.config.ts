@@ -8,7 +8,10 @@ const withMDX = createMDX();
 const config: NextConfig = {
   output: "export",
   reactStrictMode: true,
-  images: { unoptimized: true },
+  images: {
+    unoptimized: true,
+    remotePatterns: [{ protocol: "https", hostname: "avatars.githubusercontent.com" }],
+  },
   basePath: "/new-website",
   assetPrefix: "/new-website",
   distDir: "out/new-website",

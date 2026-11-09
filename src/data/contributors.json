@@ -1,70 +1,100 @@
 {
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-08",
   "repositories": 19,
   "contributors": [
     {
       "name": "Muhammad Mominul Huque",
-      "commits": 888
+      "commits": 888,
+      "login": "mominul",
+      "avatar": "https://avatars.githubusercontent.com/u/9459891?v=4&s=48"
     },
     {
       "name": "Reshad Ahammed Ayon",
-      "commits": 132
+      "commits": 159,
+      "login": "anon67676767",
+      "avatar": "https://avatars.githubusercontent.com/u/194940757?v=4&s=48"
     },
     {
       "name": "Sammay Sarkar",
-      "commits": 34
+      "commits": 34,
+      "login": "bdeshi",
+      "avatar": "https://avatars.githubusercontent.com/u/3525376?v=4&s=48"
     },
     {
       "name": "Adyel Ullahil Mamun",
-      "commits": 24
+      "commits": 24,
+      "login": "Adyel",
+      "avatar": "https://avatars.githubusercontent.com/u/4653623?v=4&s=48"
     },
     {
       "name": "Gulshan",
-      "commits": 20
-    },
-    {
-      "name": "Mahmud Nabil",
-      "commits": 12
+      "commits": 20,
+      "login": "gulshan",
+      "avatar": "https://avatars.githubusercontent.com/u/751732?v=4&s=48"
     },
     {
       "name": "larina3315",
       "commits": 12
     },
     {
+      "name": "Mahmud Nabil",
+      "commits": 12,
+      "login": "NabilSnigdho",
+      "avatar": "https://avatars.githubusercontent.com/u/44827701?v=4&s=48"
+    },
+    {
       "name": "Ahmad Hasan Mubashshir",
-      "commits": 11
+      "commits": 11,
+      "login": "ahmubashshir",
+      "avatar": "https://avatars.githubusercontent.com/u/24864366?v=4&s=48"
     },
     {
       "name": "Muntasir Mahmud",
-      "commits": 5
+      "commits": 7,
+      "login": "MuntasirSZN",
+      "avatar": "https://avatars.githubusercontent.com/u/161931072?v=4&s=48"
     },
     {
       "name": "imgbot[bot]",
-      "commits": 4
+      "commits": 4,
+      "login": "ImgBotApp",
+      "avatar": "https://avatars.githubusercontent.com/u/31427850?v=4&s=48"
     },
     {
       "name": "Abu Huraira",
-      "commits": 3
+      "commits": 3,
+      "login": "abuhuraira0099",
+      "avatar": "https://avatars.githubusercontent.com/u/79898595?v=4&s=48"
     },
     {
       "name": "Nafiul Rony",
-      "commits": 3
+      "commits": 3,
+      "login": "kryptonpust",
+      "avatar": "https://avatars.githubusercontent.com/u/30733693?v=4&s=48"
     },
     {
       "name": "JonyBepary",
-      "commits": 2
+      "commits": 2,
+      "login": "JonyBepary",
+      "avatar": "https://avatars.githubusercontent.com/u/12129117?v=4&s=48"
     },
     {
       "name": "Md. Fahim Bin Amin",
-      "commits": 2
+      "commits": 2,
+      "login": "FahimFBA",
+      "avatar": "https://avatars.githubusercontent.com/u/64195132?v=4&s=48"
     },
     {
       "name": "Atik Hasan",
-      "commits": 1
+      "commits": 1,
+      "login": "atik65",
+      "avatar": "https://avatars.githubusercontent.com/u/70690256?v=4&s=48"
     },
     {
       "name": "Battery9",
-      "commits": 1
+      "commits": 1,
+      "login": "Battery9",
+      "avatar": "https://avatars.githubusercontent.com/u/32532520?v=4&s=48"
     },
     {
       "name": "Chandradeep Dey",
@@ -72,35 +102,57 @@
     },
     {
       "name": "Erfan Ahmed Siam",
-      "commits": 1
+      "commits": 1,
+      "login": "imerfanahmed",
+      "avatar": "https://avatars.githubusercontent.com/u/28698119?v=4&s=48"
     },
     {
       "name": "Fake ID",
-      "commits": 1
+      "commits": 1,
+      "login": "fakeid30",
+      "avatar": "https://avatars.githubusercontent.com/u/26362832?v=4&s=48"
     },
     {
       "name": "Ilham Daiee Muntahi",
-      "commits": 1
+      "commits": 1,
+      "login": "ilham-daiee-muntahi",
+      "avatar": "https://avatars.githubusercontent.com/u/79640155?v=4&s=48"
     },
     {
       "name": "Imran Khan",
-      "commits": 1
+      "commits": 1,
+      "login": "natrys",
+      "avatar": "https://avatars.githubusercontent.com/u/32647404?v=4&s=48"
+    },
+    {
+      "name": "Pranesh Nur",
+      "commits": 1,
+      "login": "chillguycode",
+      "avatar": "https://avatars.githubusercontent.com/u/70361486?v=4&s=48"
     },
     {
       "name": "Shakib Hossain",
-      "commits": 1
+      "commits": 1,
+      "login": "shakib609",
+      "avatar": "https://avatars.githubusercontent.com/u/3992124?v=4&s=48"
     },
     {
       "name": "Sintaul Mahdi Siam",
-      "commits": 1
+      "commits": 1,
+      "login": "sintaulsiam",
+      "avatar": "https://avatars.githubusercontent.com/u/42476562?v=4&s=48"
     },
     {
       "name": "Thomas Staudinger",
-      "commits": 1
+      "commits": 1,
+      "login": "Staudey",
+      "avatar": "https://avatars.githubusercontent.com/u/6317346?v=4&s=48"
     },
     {
       "name": "yeakiniqra",
-      "commits": 1
+      "commits": 1,
+      "login": "yeakiniqra",
+      "avatar": "https://avatars.githubusercontent.com/u/108855634?v=4&s=48"
     }
   ]
 }
