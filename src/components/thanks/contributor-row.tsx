@@ -21,14 +21,7 @@ export function ContributorRow({
   const profileUrl = login ? `https://github.com/${login}` : null;
 
   return (
-    <tr
-      onClick={
-        profileUrl ? () => window.open(profileUrl, "_blank", "noopener,noreferrer") : undefined
-      }
-      className={`border-t border-fd-border transition-colors hover:bg-fd-accent/40 ${
-        profileUrl ? "cursor-pointer" : ""
-      }`}
-    >
+    <tr className="border-t border-fd-border transition-colors hover:bg-fd-accent/40">
       <td className="px-3 py-2.5 text-right tabular-nums text-fd-muted-foreground sm:px-4">
         {rank}
       </td>
@@ -40,7 +33,6 @@ export function ContributorRow({
               href={profileUrl}
               target="_blank"
               rel="noreferrer"
-              onClick={(event) => event.stopPropagation()}
               className={`text-fd-card-foreground transition-colors hover:text-brand-text ${focusRing}`}
             >
               {name}
