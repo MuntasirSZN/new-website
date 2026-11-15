@@ -1,0 +1,12 @@
+{
+  "title": "Khipro",
+  "defaultOpen": true,
+  "pages": [
+    "introduction",
+    "quickstart",
+    "vowels-and-kar",
+    "consonants-and-conjuncts",
+    "modifiers-and-special",
+    "juktoborno-list"
+  ]
+}

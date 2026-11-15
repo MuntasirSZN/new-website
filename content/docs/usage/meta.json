@@ -1,1 +1,12 @@
-{ "pages": ["avro-phonetic"] }
+{
+  "pages": [
+    "fixed-layout-features",
+    "avro-phonetic",
+    "avro-easy",
+    "borno",
+    "khipro",
+    "munir-optima",
+    "national-jatiya",
+    "probhat"
+  ]
+}
